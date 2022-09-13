@@ -1,47 +1,95 @@
-input.onButtonPressed(Button.A, function () {
-    strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(4, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(5, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(6, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(7, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(8, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(9, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(10, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(11, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(12, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(13, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(14, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(15, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(16, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(17, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(18, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(19, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(20, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(21, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(22, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(23, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(24, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(25, neopixel.colors(NeoPixelColors.Orange))
-    strip.setPixelColor(26, neopixel.colors(NeoPixelColors.Yellow))
-    strip.setPixelColor(27, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(28, neopixel.colors(NeoPixelColors.Green))
-    strip.setPixelColor(29, neopixel.colors(NeoPixelColors.Blue))
-    strip.setPixelColor(30, neopixel.colors(NeoPixelColors.White))
-    strip.show()
-})
 input.onGesture(Gesture.TiltLeft, function () {
+    strip = neopixel.create(DigitalPin.P0, 36, NeoPixelMode.RGB)
+    strip.showColor(neopixel.colors(NeoPixelColors.White))
+    basic.showLeds(`
+        # . . . .
+        # . . . .
+        # # # . .
+        # . # . .
+        # # # . .
+        `)
+    strip.clear()
+})
+input.onButtonPressed(Button.B, function () {
 	
 })
+input.onGesture(Gesture.TiltRight, function () {
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # # # # #
+        # . . . #
+        `)
+    strip.setBrightness(50)
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(6, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(12, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(18, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(24, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    for (let index = 0; index < 6; index++) {
+        strip.show()
+        strip.setPixelColor(30, neopixel.colors(NeoPixelColors.Red))
+        strip.shift(1)
+        basic.pause(100)
+    }
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    strip.setBrightness(350)
+    basic.pause(500)
+    strip.setBrightness(5)
+    basic.pause(1000)
+    strip.setBrightness(1)
+    basic.pause(500)
+    strip.setBrightness(9)
+    basic.pause(1000)
+    strip.setBrightness(100)
+    basic.pause(500)
+    strip.setBrightness(2)
+    basic.pause(1000)
+    strip.setBrightness(10)
+    basic.pause(500)
+    strip.setBrightness(350)
+    basic.showLeds(`
+        # # # . .
+        # . . . .
+        # # # . .
+        # . . . .
+        # # # . .
+        `)
+})
 let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 30, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P0, 36, NeoPixelMode.RGB)
 strip.showColor(neopixel.colors(NeoPixelColors.White))
 basic.showLeds(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
+    # . . . #
+    # # . . #
+    # . # . #
+    # . . # #
+    # . . . #
     `)
+strip.clear()
